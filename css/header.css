@@ -7,18 +7,18 @@ body {
 header {
     font-family: Roboto, sans-serif;
     color: white;
-    width: 276px;
+    width: 256px;
     background-color: var(--secondary-color);
     padding: 26px 0 0 0;
 }
 
-.header-content-menu {
+.header-content-logo {
     display: flex;
     gap: 24px;
     padding: 0 0 50px 26px;
 }
 
-.header-content-menu span {
+.header-content-logo span {
     font-size: 10px;
     color: var(--primary-color);
 }
@@ -33,7 +33,7 @@ header {
     width: 34px;
 }
 
-.text {
+.header-text {
     align-self: center;
     font-weight: 500;
     font-size: 20px;
@@ -50,14 +50,52 @@ header {
     opacity: 0.5;
 }
 
-.bottom-text {
+.header-content-bottom {
     display: flex;
     flex-direction: column;
     gap: 16px;
     padding: 16px 0 28px 28px;
-    opacity: 0.5;
 }
 
-.bottom-text span {
-    line-height: 24px;
+.header-content-bottom span {
+    letter-spacing: 1px;
+    line-height: 26px;
+    color: white;
+    opacity: 0.5;
+    cursor: pointer;
 }
+
+.header-content-logo img, .header-content-logo p {
+    cursor: pointer;
+}
+
+.header-content img, .header-content p {
+    cursor: pointer;
+    display: block;
+}
+
+@media only screen and (max-width: 760px) {
+    .header-content p, .header-content-logo p {
+        display: none;
+    }
+
+    header {
+        width: 85px;
+    }
+
+    .hr-line hr {
+        width: 70px;
+    }
+
+    .header-content-bottom {
+        display: none;
+    }
+
+    .header-content {
+        display: flex;
+        justify-content: center;
+        gap: 24px;
+        padding: 14px 0 14px 0;
+    }
+}
+
