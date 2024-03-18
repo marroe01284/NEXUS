@@ -1,0 +1,37 @@
+@import "utils.css";
+
+.div-1 {
+    background-color: var(--secondary-color);
+    color: white;
+    height: 220px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.logo-container img {
+    width: 150px;
+}
+
+.social-content img {
+    width: 48px;
+}
+
+.navigate-div {
+    display: flex;
+    gap: 28px;
+}
+
+.navigate {
+    display: flex;
+    flex-direction: column;
+}
+
+.div-2 {
+    height: 100px;
+    background-color: var(--primary-color);
+    color: white;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
