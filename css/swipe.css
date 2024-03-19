@@ -4,3 +4,27 @@ var(--primary-color orange)
 var(--secondary-color purple)
 var(--tertiary-color white)
 var(--font-color black) */
+
+body {
+    background-color: var(--secondary-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.section-swipe-hexagon {
+    height: 250px;
+    width: 300px;
+}
+
+.section-swipe-hexagon-username {
+    font-size: 1.5rem;
+    color: var(--font-color);
+}
+
+.section-swipe-h4 {
+    font-size: 1rem;
+    font-family: "Bungee", sans-serif;
+    font-weight: 500;
+    color: var(--secondary-color);
+}
