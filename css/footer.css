@@ -38,7 +38,7 @@
     gap: 8px;
 }
 
-.navigate .span-1 {
+.navigate .navigate-span {
     text-decoration: underline;
     text-decoration-skip-ink: none;
     padding: 0 0 8px 0;
