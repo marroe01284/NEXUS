@@ -1,0 +1,124 @@
+@import "utils.css";
+
+body {
+    background-color: var(--tertiary-color);
+}
+
+header {
+    font-family: Roboto, sans-serif;
+    color: white;
+    width: 256px;
+    background-color: var(--secondary-color);
+    padding: 26px 0 0 0;
+}
+
+.header-content-logo {
+    display: flex;
+    gap: 24px;
+    padding: 0 0 42px 26px;
+}
+
+.header-content-logo span {
+    font-size: 10px;
+    color: var(--primary-color);
+}
+
+.header-content {
+    display: flex;
+    gap: 24px;
+    padding: 14px 0 14px 26px;
+}
+
+.header-content img {
+    width: 34px;
+}
+
+.header-text {
+    align-self: center;
+    font-weight: 500;
+    font-size: 20px;
+}
+
+.hr-line {
+    display: flex;
+    justify-content: center;
+    padding: 12px 0 12px 0;
+}
+
+.hr-line hr {
+    width: 242px;
+    opacity: 0.5;
+}
+
+.header-content-bottom {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: 16px 0 28px 28px;
+}
+
+.header-content-bottom span {
+    letter-spacing: 1px;
+    line-height: 26px;
+    color: white;
+    opacity: 0.5;
+    cursor: pointer;
+}
+
+.header-content-bottom span:hover {
+    opacity: 1;
+    transition: 0.2ms ease-in-out;
+}
+
+.header-content-bottom a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.header-content-logo img, .header-content-logo p {
+    cursor: pointer;
+}
+
+.header-content img, .header-content p {
+    cursor: pointer;
+    display: block;
+}
+
+@media only screen and (max-width: 760px) {
+    .header-content p, .header-content-logo p {
+        display: none;
+    }
+
+    header {
+        width: 86px;
+    }
+
+    .hr-line hr {
+        width: 70px;
+    }
+
+    .header-content-bottom {
+        display: none;
+    }
+
+    .header-content {
+        display: flex;
+        justify-content: center;
+        gap: 24px;
+        padding: 14px 0 14px 0;
+    }
+
+    .header-content-logo {
+        display: flex;
+        justify-content: center;
+        gap: 24px;
+        padding: 0 0 42px 0;
+    }
+}
+
+.header-content a {
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    gap: 24px;
+}
