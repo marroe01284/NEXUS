@@ -5,3 +5,49 @@ var(--primary-color orange)
 var(--secondary-color purple)
 var(--tertiary-color white)
 var(--font-color black) */
+
+main {
+    display: flex;
+    justify-content: center;
+}
+
+.registration-div {
+    display: flex;
+    justify-content: center;
+}
+
+.registration {
+    font-family: Bungee, sans-serif;
+}
+
+.hr-div {
+    display: flex;
+    justify-content: center;
+    padding: 0 0 20px 0;
+}
+
+hr {
+    width: 400px;
+    height: 4px;
+    background-color: orange;
+    border: 0;
+    border-radius: 4px;
+}
+
+.first-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.first-form input {
+    border: 1px solid var(--primary-color);
+    border-radius: 4px;
+    height: 26px;
+    background-color: #80808017;
+    margin: 0 0 10px 0;
+}
+
+.register-btn {
+    display: flex;
+    justify-content: center;
+}
