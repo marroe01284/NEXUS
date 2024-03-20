@@ -28,14 +28,14 @@ var(--font-color black) */
 
 .section-title {
     font-family: "Roboto", sans-serif;
-    padding: .5rem;
+    padding: 1rem;
     font-size: 16px;
 }
 
 .section-content {
     font-family: "Roboto", sans-serif;
     font-size: 14px;
-    padding: .5rem;
+    padding: 1rem;
 }
 
 .btn-container {
