@@ -37,6 +37,7 @@ hr {
 .first-form {
     display: flex;
     flex-direction: column;
+    padding: 0 0 16px 0;
 }
 
 .first-form input {
@@ -47,7 +48,29 @@ hr {
     margin: 0 0 10px 0;
 }
 
-.register-btn {
+.btn-container {
     display: flex;
     justify-content: center;
+    padding: 16px 0 16px 0;
+}
+
+.registration-btn {
+    width: 136px;
+    height: 42px;
+    background-color: transparent;
+    color: orange;
+    border: 2px solid;
+    border-radius: 4px;
+    font-family: Bungee, sans-serif;
+    cursor: pointer;
+}
+
+.first-form, .second-form {
+    font-family: Roboto, sans-serif;
+}
+
+/* Increase the size of checkboxes */
+.second-form input[type="checkbox"] {
+    width: 16px; /* Adjust the width */
+    height: 16px; /* Adjust the height */
 }
