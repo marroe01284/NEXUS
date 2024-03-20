@@ -54,6 +54,9 @@ var(--font-color black) */
     border-radius: 6px;
     cursor: pointer;
     color: var(--primary-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .btn-primary:hover {
