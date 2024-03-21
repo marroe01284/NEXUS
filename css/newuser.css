@@ -67,9 +67,9 @@ hr {
 
 .registration-btn:hover {
     background-color: var(--primary-color);
-    /*border-color: rgba(255, 255, 255, 0.87);*/
+    border-color: black;
     transition: 2ms ease-in-out;
-    color: white;
+    color: black;
 }
 
 .first-form, .second-form {
@@ -79,4 +79,9 @@ hr {
 .second-form input[type="checkbox"] {
     width: 16px;
     height: 16px;
+}
+
+.form-link a {
+    text-decoration: underline;
+    color: var(--primary-color);
 }
