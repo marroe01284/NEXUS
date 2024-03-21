@@ -1,4 +1,6 @@
 @import url("utils.css");
+@import "header.css";
+@import "footer.css";
 /* colors
 var(--primary-color orange)
 var(--secondary-color purple)

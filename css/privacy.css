@@ -1,6 +1,111 @@
 @import url("utils.css");
+@import "footer.css";
 /* colors
 var(--primary-color orange)
 var(--secondary-color purple)
 var(--tertiary-color white)
 var(--font-color black) */
+
+.section-header {
+    font-family: "Bungee", sans-serif;
+    font-size: 24px;
+    text-align: center;
+    margin-top: 24px;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    margin-top: 21px;
+    margin-bottom: 24px;
+}
+
+.header-line {
+    width: 250px;
+    height: 4px;
+    background-color: var(--primary-color);
+}
+
+.section-title {
+    font-family: "Roboto", sans-serif;
+    padding: 1rem;
+    font-size: 16px;
+}
+
+.section-content {
+    font-family: "Roboto", sans-serif;
+    font-size: 14px;
+    padding: 1rem;
+}
+
+.btn-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+}
+
+.btn-primary {
+    height: 48px;
+    width: 163px;
+    border: solid 1px var(--primary-color);
+    font-family: "Bungee", sans-serif;
+    background-color: transparent;
+    border-radius: 6px;
+    cursor: pointer;
+    color: var(--primary-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn-primary:hover {
+    background-color: var(--primary-color);
+    border: solid 1px var(--font-color);
+    color: var(--font-color);
+}
+
+
+a {
+    text-decoration: none;
+    color: var(--primary-color);
+}
+
+@media (min-width: 800px) {
+    .header-line {
+        width: 405px;
+        height: 4px;
+    }
+
+    .section-header {
+        font-size: 32px;
+    }
+
+    .section-title {
+        font-size: 24px;
+    }
+
+    .section-content {
+        font-size: 16px;
+    }
+}
+
+@media (min-width: 1400px) {
+    .header-line {
+        width: 1050px;
+        height: 4px;
+    }
+
+    .section-header {
+        font-size: 48px;
+    }
+
+    .section-title {
+        font-size: 32px;
+    }
+
+    .section-content {
+        font-size: 24px;
+    }
+}
