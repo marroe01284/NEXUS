@@ -58,19 +58,25 @@ hr {
     width: 136px;
     height: 42px;
     background-color: transparent;
-    color: orange;
+    color: var(--primary-color);
     border: 2px solid;
     border-radius: 4px;
     font-family: Bungee, sans-serif;
     cursor: pointer;
 }
 
+.registration-btn:hover {
+    background-color: var(--primary-color);
+    /*border-color: rgba(255, 255, 255, 0.87);*/
+    transition: 2ms ease-in-out;
+    color: white;
+}
+
 .first-form, .second-form {
     font-family: Roboto, sans-serif;
 }
 
-/* Increase the size of checkboxes */
 .second-form input[type="checkbox"] {
-    width: 16px; /* Adjust the width */
-    height: 16px; /* Adjust the height */
+    width: 16px;
+    height: 16px;
 }
