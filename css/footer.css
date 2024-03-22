@@ -1,14 +1,14 @@
 @import "utils.css";
 
-.div-1 {
+.section-one-footer {
     background-color: var(--secondary-color);
     font-family: Roboto, sans-serif;
     color: var(--tertiary-color);
-    height: 220px;
+    height: 185px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0 120px 0 120px;
+    padding: 0 42px 0 42px;
 }
 
 .logo-container {
@@ -29,7 +29,6 @@
     display: flex;
     gap: 64px;
     justify-content: center;
-    padding: 24px 0 0 0;
 }
 
 .navigate {
@@ -60,15 +59,14 @@
     color: inherit;
 }
 
-.div-2 {
-    height: 100px;
+.section-two-footer {
+    height: 54px;
     background-color: var(--primary-color);
     font-family: Roboto, sans-serif;
     color: var(--tertiary-color);
     display: flex;
-    justify-content: flex-start;
+    justify-content: center;
     align-items: center;
-    padding: 0 0 0 120px;
 }
 
 .socials {
@@ -97,6 +95,7 @@
     background-color: var(--secondary-color);
     font-family: Roboto, sans-serif;
     gap: 26px;
+    padding: 24px 0 0 0;
 }
 
 @media (min-width: 950px) {
