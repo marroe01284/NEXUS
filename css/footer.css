@@ -3,7 +3,7 @@
 .div-1 {
     background-color: var(--secondary-color);
     font-family: Roboto, sans-serif;
-    color: white;
+    color: var(--tertiary-color);
     height: 220px;
     display: flex;
     justify-content: space-between;
@@ -64,7 +64,7 @@
     height: 100px;
     background-color: var(--primary-color);
     font-family: Roboto, sans-serif;
-    color: white;
+    color: var(--tertiary-color);
     display: flex;
     justify-content: flex-start;
     align-items: center;
@@ -86,7 +86,7 @@
     }
 
     .navigate {
-        color: white;
+        color: var(--tertiary-color);
     }
 }
 
@@ -112,7 +112,7 @@
 }
 
 .copyright-mobile span {
-    color: white;
+    color: var(--tertiary-color);
 }
 
 .social-content-mobile {
