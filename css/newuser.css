@@ -85,3 +85,22 @@ hr {
     text-decoration: underline;
     color: var(--primary-color);
 }
+
+#privacy {
+    margin: 0;
+}
+
+#terms {
+    margin: 0;
+}
+
+.checkbox-container {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 8px 0 0 0;
+}
+
+.form-link {
+    text-decoration-skip-ink: none;
+}
