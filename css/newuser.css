@@ -35,6 +35,7 @@ hr {
 }
 
 .first-form {
+    font-family: Roboto, sans-serif;
     display: flex;
     flex-direction: column;
     padding: 0 0 16px 0;
@@ -43,9 +44,14 @@ hr {
 .first-form input {
     border: 1px solid var(--primary-color);
     border-radius: 4px;
-    height: 26px;
+    height: 34px;
     background-color: #80808017;
     margin: 0 0 10px 0;
+    font-size: 16px;
+}
+
+.first-form label {
+    margin: 0 0 4px 0;
 }
 
 .btn-container {
@@ -72,15 +78,6 @@ hr {
     color: black;
 }
 
-.first-form, .second-form {
-    font-family: Roboto, sans-serif;
-}
-
-.second-form input[type="checkbox"] {
-    width: 16px;
-    height: 16px;
-}
-
 .form-link a {
     text-decoration: underline;
     color: var(--primary-color);
@@ -97,10 +94,35 @@ hr {
 .checkbox-container {
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: 4px;
     margin: 8px 0 0 0;
+}
+
+.checkbox-container label {
+    margin: 0;
 }
 
 .form-link {
     text-decoration-skip-ink: none;
+}
+
+input[type="checkbox"] {
+    transform: scale(1.2);
+}
+
+/* Target the placeholder text of input fields */
+::-webkit-input-placeholder { /* For Chrome, Safari, Edge, and Opera */
+    font-size: 80%;
+}
+
+:-moz-placeholder { /* For Firefox 4-18 */
+    font-size: 80%;
+}
+
+::-moz-placeholder { /* For Firefox 19+ */
+    font-size: 80%;
+}
+
+:-ms-input-placeholder { /* For Internet Explorer and Microsoft Edge */
+    font-size: 80%; 
 }
