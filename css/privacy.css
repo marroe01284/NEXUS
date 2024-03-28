@@ -21,29 +21,29 @@ var(--font-color black) */
 }
 
 .header-line {
-    width: 250px;
+    width: 70%;
     height: 4px;
     background-color: var(--primary-color);
 }
 
 .section-title {
     font-family: "Roboto", sans-serif;
-    padding: 1rem;
+    padding: 1rem 3rem;
     font-size: 16px;
 }
 
 .section-content {
     font-family: "Roboto", sans-serif;
     font-size: 14px;
-    padding: 1rem;
+    padding: 1rem 3rem;
 }
 
 .btn-container {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-top: 2rem;
-    margin-bottom: 1rem;
+    margin-top: 3rem;
+    margin-bottom: 44px;
 }
 
 .btn-primary {
@@ -74,7 +74,7 @@ a {
 
 @media (min-width: 800px) {
     .header-line {
-        width: 405px;
+        width: 70%;
         height: 4px;
     }
 
@@ -93,7 +93,7 @@ a {
 
 @media (min-width: 1400px) {
     .header-line {
-        width: 1050px;
+        width: 70%;
         height: 4px;
     }
 
