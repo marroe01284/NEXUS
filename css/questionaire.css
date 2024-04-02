@@ -5,3 +5,118 @@ var(--primary-color orange)
 var(--secondary-color purple)
 var(--tertiary-color white)
 var(--font-color black) */
+* {
+    box-sizing: border-box;
+    margin: 0;
+}
+
+.section-header {
+    font-family: "Bungee", sans-serif;
+    font-size: 24px;
+    text-align: center;
+    margin-top: 24px;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    margin-top: 21px;
+    margin-bottom: 24px;
+}
+
+.header-line {
+    width: 70%;
+    height: 4px;
+    background-color: #FF9000;
+}
+.section-title{
+    margin-left: 19%;
+    padding: 2rem;
+    font-family: "Roboto", sans-serif;
+    font-weight: bold;
+}
+.input-container-one{
+    display: grid;
+    grid-template-columns: repeat(4, auto);
+    gap: 20px;
+    justify-content: left;
+    align-items: center;
+    font-family: "Roboto", sans-serif;
+    margin-left: 27%;
+}
+.input-container-two{
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    gap: 20px;
+    justify-content: left;
+    align-items: center;
+    font-family: "Roboto", sans-serif;
+    margin-left: 27%;
+}
+.input-container-three{
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    gap: 20px;
+    font-family: "Roboto", sans-serif;
+    margin-left: 27%;
+}
+.input-container-four{
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    gap: 20px;
+    font-family: "Roboto", sans-serif;
+    margin-left: 27%;
+}
+.input-container-five{
+    display: grid;
+    grid-template-columns: repeat(4, auto);
+    gap: 20px;
+    justify-content: left;
+    align-items: center;
+    font-family: "Roboto", sans-serif;
+    margin-left: 27%;
+}
+.input-type{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 60px;
+}
+.submit-btn{
+    background-color: var(--background-color);
+    width: 163px;
+    height: 48px;
+    border: 1px solid #FF9000;
+    font-family: "Bungee", sans-serif;
+    border-radius: 6px;
+    cursor: pointer;
+}
+.submit-btn:hover{
+    background-color: #FF9000;
+    border: 1px solid black;
+}
+input[type="checkbox"]{
+    transform: scale(1.5);
+    cursor: pointer;
+}
+@media (min-width: 768px){
+    .input-container-one{
+        grid-template-columns: repeat(8, auto);
+        margin-left: 24%;
+    }
+    .input-container-two{
+        margin-left: 24%;
+        grid-template-columns: repeat(4, auto);
+    }
+    .input-container-three{
+        margin-left: 24%;
+    }
+    .input-container-four{
+        margin-left: 24%;
+    }
+    .input-container-five{
+        margin-left: 24%;
+    }
+}
