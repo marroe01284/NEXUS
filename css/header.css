@@ -1,12 +1,8 @@
 @import "utils.css";
 
-body {
-    background-color: var(--tertiary-color);
-}
-
 header {
     font-family: Roboto, sans-serif;
-    color: white;
+    color: var(--tertiary-color);
     width: 256px;
     background-color: var(--secondary-color);
     padding: 26px 0 0 0;
@@ -15,7 +11,7 @@ header {
 .header-content-logo {
     display: flex;
     gap: 24px;
-    padding: 0 0 42px 26px;
+    padding: 0 0 36px 26px;
 }
 
 .header-content-logo span {
@@ -46,33 +42,19 @@ header {
 }
 
 .hr-line hr {
-    width: 242px;
+    width: 232px;
     opacity: 0.5;
 }
 
-.header-content-bottom {
+.hr-line-bottom {
     display: flex;
-    flex-direction: column;
-    gap: 16px;
-    padding: 16px 0 28px 28px;
+    justify-content: center;
+    padding: 12px 0 0 0;
 }
 
-.header-content-bottom span {
-    letter-spacing: 1px;
-    line-height: 26px;
-    color: white;
+.hr-line-bottom hr {
+    width: 232px;
     opacity: 0.5;
-    cursor: pointer;
-}
-
-.header-content-bottom span:hover {
-    opacity: 1;
-    transition: 0.2ms ease-in-out;
-}
-
-.header-content-bottom a {
-    text-decoration: none;
-    color: inherit;
 }
 
 .header-content-logo img, .header-content-logo p {
@@ -109,10 +91,7 @@ header {
     }
 
     .header-content-logo {
-        display: flex;
-        justify-content: center;
-        gap: 24px;
-        padding: 0 0 42px 0;
+        display: none;
     }
 }
 

@@ -1,14 +1,14 @@
 @import "utils.css";
 
-.div-1 {
+.section-one-footer {
     background-color: var(--secondary-color);
     font-family: Roboto, sans-serif;
-    color: white;
-    height: 220px;
+    color: var(--tertiary-color);
+    height: 185px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0 120px 0 120px;
+    padding: 0 42px 0 42px;
 }
 
 .logo-container {
@@ -29,7 +29,6 @@
     display: flex;
     gap: 64px;
     justify-content: center;
-    padding: 24px 0 0 0;
 }
 
 .navigate {
@@ -38,7 +37,7 @@
     gap: 8px;
 }
 
-.navigate .span-1 {
+.navigate .navigate-span {
     text-decoration: underline;
     text-decoration-skip-ink: none;
     padding: 0 0 8px 0;
@@ -60,15 +59,14 @@
     color: inherit;
 }
 
-.div-2 {
-    height: 100px;
+.section-two-footer {
+    height: 54px;
     background-color: var(--primary-color);
     font-family: Roboto, sans-serif;
-    color: white;
+    color: var(--tertiary-color);
     display: flex;
-    justify-content: flex-start;
+    justify-content: center;
     align-items: center;
-    padding: 0 0 0 120px;
 }
 
 .socials {
@@ -86,7 +84,7 @@
     }
 
     .navigate {
-        color: white;
+        color: var(--tertiary-color);
     }
 }
 
@@ -97,6 +95,7 @@
     background-color: var(--secondary-color);
     font-family: Roboto, sans-serif;
     gap: 26px;
+    padding: 24px 0 0 0;
 }
 
 @media (min-width: 950px) {
@@ -112,7 +111,7 @@
 }
 
 .copyright-mobile span {
-    color: white;
+    color: var(--tertiary-color);
 }
 
 .social-content-mobile {
