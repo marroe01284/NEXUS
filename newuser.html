@@ -8,10 +8,55 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/newuser.css">
+    <script src="https://kit.fontawesome.com/fe924a0d6e.js" crossorigin="anonymous"></script>
     <script src="js/newuser.js" defer></script>
 </head>
 
 <body>
+
+<main>
+    <div>
+        <div class="registration-div">
+            <h1 class="registration">
+                Registration
+            </h1>
+        </div>
+        <div class="hr-div">
+            <hr>
+        </div>
+        <div>
+            <form class="first-form" id="loginForm">
+                <label for="firstName">First name:</label>
+                <input type="text" id="firstName" required>
+
+                <label for="lastName">Last name:</label>
+                <input type="text" id="lastName" required>
+
+                <label for="username">Username:</label>
+                <input type="text" id="username" required>
+
+                <label for="pwd">Password:</label>
+                <input type="password" id="pwd" required>
+
+                <label for="pwd2">Confirm password:</label>
+                <input type="password" id="pwd2" required>
+                <p id="passwordMatchMessage"></p>
+
+                <div class="checkbox-container">
+                    <input type="checkbox" id="privacy" class="checkboxinput" required>
+                    <label for="privacy">I have read the <span class="form-link"><a href="privacy.html" target="_blank">privacy policy</a></span></label>
+                </div>
+                <div class="checkbox-container">
+                    <input type="checkbox" id="terms" class="checkboxinput" required>
+                    <label for="terms">I have read the <span class="form-link"><a href="terms.html" target="_blank">terms and conditions</a></span></label>
+                </div>
+                <div class="btn-container">
+                    <button class="registration-btn">Register</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</main>
 
 <footer class="footer-desktop">
     <div class="section-one-footer">
