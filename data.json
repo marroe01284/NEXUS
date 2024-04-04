@@ -5,7 +5,7 @@
             "username":"Marius",
             "email":"marius@hotmail.com",
             "password":"123456",
-            "userImg":"marius.jpg",
+            "userImg":"assets/images/user/marius.jpg",
             "genre": [
                 "FPS",
                 "Strategy",
@@ -35,7 +35,7 @@
             "username":"Jo",
             "email":"jo@hotmail.com",
             "password":"123456",
-            "userImg":"jo.jpg",
+            "userImg":"assets/images/user/jo.jpg",
             "genre": [
                 "FPS",
                 "Strategy",
@@ -62,7 +62,7 @@
             "username":"Kevin",
             "email":"kevin@hotmail.com",
             "password":"123456",
-            "userImg":"kevin.jpg",
+            "userImg":"assets/images/user/kevin.jpg",
             "genre": [
                 "Horror",
                 "Simulation",
@@ -88,7 +88,7 @@
             "username":"Tom",
             "email":"tom@hotmail.com",
             "password":"123456",
-            "userImg":"tom.jpg",
+            "userImg":"assets/images/user/tom.jpg",
             "genre": [
                 "FPS",
                 "Stealth",
@@ -115,7 +115,7 @@
             "username":"Kjetil",
             "email":"kjetil@hotmail.com",
             "password":"123456",
-            "userImg":"kjetil.jpg",
+            "userImg":"assets/images/user/kjetil.jpg",
             "genre": [
                 "Survival",
                 "MMORPG",
