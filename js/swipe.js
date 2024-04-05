@@ -142,13 +142,85 @@ function appendNewCard() {
       dislike.classList.toggle("trigger");
     },
   });
-  swiper.append(card.element);
+
+  // Append the card to the swiper
+  swiper.appendChild(card.element);
   cardCount++;
   const cards = swiper.querySelectorAll(".card:not(.dismissing)");
   cards.forEach((card, index) => {
     card.style.setProperty("--i", index);
   });
+
+  // Fetch user data and display options
+  fetch('https://raw.githubusercontent.com/marroe01284/NEXUS/main/data.json')
+    .then(response => response.json()) 
+    .then(data => {
+        const users = data.users;
+        // Assuming cardCount corresponds to user index
+        const user = users[cardCount - 1];
+        displayUserOptions(user, card);
+    })
+    .catch(error => console.error('Error fetching data:', error));
 }
+
+function displayUserOptions(user, card) {
+  const userOptionsDiv = document.createElement('div');
+  userOptionsDiv.classList.add('user-options');
+
+  // username
+  const usernameElement = document.createElement('h4');
+  usernameElement.textContent = `Username: ${user.username}`;
+  usernameElement.classList.add('section-swipe-hexagon-username');
+  userOptionsDiv.appendChild(usernameElement);
+
+// user image
+const userImageElement = document.createElement('img');
+userImageElement.src = user.userImg;
+userImageElement.alt = `Profile Image of ${user.username}`;
+
+const userImageContainer = document.createElement('div');
+userImageContainer.classList.add('section-swipe-hexagon-user-image');
+userImageContainer.appendChild(userImageElement);
+
+userOptionsDiv.appendChild(userImageContainer);
+
+
+
+
+  // email
+  const emailElement = document.createElement('p');
+  emailElement.textContent = `Email: ${user.email}`;
+  userOptionsDiv.appendChild(emailElement);
+
+  // genres
+  const genreElement = document.createElement('p');
+  genreElement.textContent = `Preferred Genres: ${user.genre.join(', ')}`;
+  userOptionsDiv.appendChild(genreElement);
+
+  // platforms
+  const platformElement = document.createElement('p');
+  platformElement.textContent = `Preferred Platforms: ${user.platform.join(', ')}`;
+  userOptionsDiv.appendChild(platformElement);
+
+  // gaming style
+  const styleElement = document.createElement('p');
+  styleElement.textContent = `Gaming Style: ${user.style.join(', ')}`;
+  userOptionsDiv.appendChild(styleElement);
+
+  // preferred gaming time
+  const timeElement = document.createElement('p');
+  timeElement.textContent = `Preferred Gaming Time: ${user.time.join(', ')}`;
+  userOptionsDiv.appendChild(timeElement);
+
+  // gaming experience
+  const experienceElement = document.createElement('p');
+  experienceElement.textContent = `Looking to: ${user.experience.join(', ')}`;
+  userOptionsDiv.appendChild(experienceElement);
+
+  // Append user options to card
+  card.element.appendChild(userOptionsDiv);
+}
+
 // first 5 cards
 for (let i = 0; i < 5; i++) {
   appendNewCard();

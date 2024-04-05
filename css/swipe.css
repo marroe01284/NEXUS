@@ -10,6 +10,8 @@ html,
 body {
   width: 100vw;
   height: 100vh;
+  margin: 0;
+  padding: 0;
 }
 
 body {
@@ -22,26 +24,44 @@ body {
 .section-swipe {
   position: relative;
   flex-direction: column;
-  top: -500px;
-  left: 0;
+  margin-top: 50px;
 }
 
 .section-swipe-hexagon {
-  height: 70vh;
-  aspect-ratio: 2 / 3;
+  width: 60vw;
+  height: 40vh;
   perspective: 1000px;
   perspective-origin: center 50%;
   transform-style: preserve-3d;
 }
 
 .section-swipe-hexagon img {
-  height: 60vh;
-  width: 60vw;
+  height: 70%;
+  width: 70%;
 }
 
 .section-swipe-hexagon-username {
   font-size: 1.5rem;
   color: #3f3131;
+  position: absolute; /* Position the username element within its parent container */
+  top: 70%; /* Position at the vertical center of the parent container */
+  left: 25%; /* Position at the horizontal center of the parent container */
+}
+
+.section-swipe-hexagon-user-image {
+  position: absolute;
+  top: 54%;
+  left: 59%;
+  transform: translate(-50%, -50%);
+  width: 90%; /* Adjust the width and height as needed */
+  height: 90%;
+}
+
+.section-swipe-hexagon-user-image img {
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  object-fit: cover; 
 }
 
 .section-swipe-h4 {
