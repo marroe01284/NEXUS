@@ -1,5 +1,6 @@
 @import url("utils.css");
 @import "footer.css";
+
 /* colors
 var(--primary-color orange)
 var(--secondary-color purple)
@@ -24,15 +25,17 @@ body {
 .section-swipe {
   position: relative;
   flex-direction: column;
-  margin-top: 50px;
 }
 
 .section-swipe-hexagon {
   width: 60vw;
   height: 40vh;
+  min-width: 500px;
   perspective: 1000px;
   perspective-origin: center 50%;
   transform-style: preserve-3d;
+  margin-left: 200px;
+  margin-top: -400px;
 }
 
 .section-swipe-hexagon img {
@@ -41,27 +44,28 @@ body {
 }
 
 .section-swipe-hexagon-username {
-  font-size: 1.5rem;
+  font-size: 3vw;
   color: #3f3131;
-  position: absolute; /* Position the username element within its parent container */
-  top: 70%; /* Position at the vertical center of the parent container */
-  left: 25%; /* Position at the horizontal center of the parent container */
+  position: absolute;
+  top: 85%;
+  left: 35%;
+  transform: translate(-50%, -50%);
 }
 
 .section-swipe-hexagon-user-image {
   position: absolute;
-  top: 54%;
-  left: 59%;
+  top: 53%;
+  left: 60%;
   transform: translate(-50%, -50%);
-  width: 90%; /* Adjust the width and height as needed */
+  width: 90%;
   height: 90%;
 }
 
 .section-swipe-hexagon-user-image img {
-  width: 300px;
-  height: 300px;
+  width: 45%;
+  height: 75%;
   border-radius: 50%;
-  object-fit: cover; 
+  object-fit: cover;
 }
 
 .section-swipe-h4 {
@@ -77,11 +81,22 @@ body {
   height: 200px;
   border-radius: 4px;
   position: absolute;
-  top: 54vh;
-  left: 60px;
+  top: 0;
+  left: 270px;
 }
 
-.swipe-card-left h4 {
+.swipe-card-right {
+  background-color: var(--primary-color);
+  width: 200px;
+  height: 200px;
+  border-radius: 4px;
+  position: absolute;
+  top: 220px;
+  left: 270px;
+}
+
+.swipe-card-left h4,
+.swipe-card-right h4 {
   display: flex;
   justify-content: center;
   margin: 6px;
@@ -91,35 +106,13 @@ body {
   margin-top: 80px;
 }
 
-.swipe-card-right {
-  background-color: var(--primary-color);
-  width: 200px;
-  height: 200px;
-  border-radius: 4px;
-  position: absolute;
-  top: 72vh;
-  left: 60px;
-}
-
-.swipe-card-right h4 {
-  display: flex;
-  justify-content: center;
-  margin: 6px;
-}
-
-.section-swipe-hexagon {
-  width: 60vw;
-  height: 40vh;
-}
-
 .card {
   width: 100%;
   height: 100%1;
   position: absolute;
   border-radius: 20px;
   overflow: hidden;
-  transform: translateZ(calc(-30px * var(--i)))
-    translateY(calc(-10px * var(--i))) rotate(calc(4deg * var(--i)));
+  transform: translateZ(calc(-30px * var(--i))) translateY(calc(-10px * var(--i))) rotate(calc(4deg * var(--i)));
   filter: drop-shadow(0.5px 0.5px 5px rgba(0, 0, 0, 0.5));
   cursor: pointer;
   user-select: none;
@@ -148,19 +141,15 @@ body {
 #like {
   color: red;
   background-color: rgba(255, 255, 255, 0.5);
-  top: 43vh;
-  left: 180px;
-  /* top: 120px;
-  left: 350px; */
+  top: -110px;
+  left: 450px;
 }
 
 #dislike {
   color: #ccc;
   background-color: rgba(0, 0, 0, 0.5);
-  top: 43vh;
-  left: 50px;
-  /* top: 120px;
-  right: 350px; */
+  top: -110px;
+  left: 200px;
 }
 
 @keyframes animation1 {
@@ -189,21 +178,22 @@ header {
   left: 0;
 }
 
-.footer-mobile {
-  position: absolute;
-  bottom: -300px;
+.footer-mobile,
+.footer-desktop {
+  position: absolute; 
+  bottom: -200px; 
   width: 100vw;
 }
 
 @media only screen and (min-width: 768px) {
-  #like {
-    top: 52vh;
-    left: 50vw;
+  #dislike {
+    top: 40vh;
+    left: 5vw;
   }
 
-  #dislike {
-    top: 52vh;
-    left: 50px;
+  #like {
+    top: 40vh;
+    left: 40vw;
   }
 
   .section-swipe {
@@ -215,50 +205,28 @@ header {
     left: 0;
   }
 
-  .swipe-card-left {
-    background-color: var(--primary-color);
-    width: 300px;
-    height: 300px;
-    border-radius: 4px;
-    position: absolute;
-    top: 63vh;
-    left: 14vw;
+  .section-swipe-hexagon {
+    width: 60vw;
+    height: 40vh;
+    margin-left: 80px;
+    margin-top: 50px;
+    max-width: 1100px;
   }
-  
-  .swipe-card-left h4 {
-    display: flex;
-    justify-content: center;
-    margin: 6px;
-  }
-  
-  .swipe-card-left-behavior-img .swipe-card-right-platform-img {
-    margin-top: 80px;
-  }
-  
+
+  .swipe-card-left,
   .swipe-card-right {
-    background-color: var(--primary-color);
-    width: 300px;
-    height: 300px;
+    width: 80%;
+    max-width: 300px;
+    height: 200px;
     border-radius: 4px;
     position: absolute;
-    top: 63vh;
-    left: 34vw;
-  }
-  
-  .swipe-card-right h4 {
-    display: flex;
-    justify-content: center;
-    margin: 6px;
+    top: 150%;
+    left: 20%;
+    transform: translate(-50%, -50%);
   }
 
-  .card {
-    transform: translateZ(calc(-60px * var(--i)))
-      translateY(calc(-20px * var(--i))) rotate(calc(4deg * var(--i)));
-  }
-
-  .footer-desktop {
-    position: absolute;
-    bottom: -300px;
-    width: 100vw;
+  .swipe-card-right {
+    left: 30%;
+    transform: translate(50%, -50%);
   }
 }

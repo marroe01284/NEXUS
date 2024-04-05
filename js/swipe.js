@@ -9,110 +9,116 @@ const urls = [
   "assets/icons/vector/swipe-hex.svg",
 ];
 let cardCount = 0;
+let lastUserIndex = -1; 
+let usersData = null;
+
 class Card {
   constructor({ imageUrl, onDismiss, onLike, onDislike }) {
     this.imageUrl = imageUrl;
     this.onDismiss = onDismiss;
     this.onLike = onLike;
     this.onDislike = onDislike;
-    this.#init();
+    this.init();
   }
-  // private properties
-  #startPoint;
-  #offsetX;
-  #offsetY;
-  #isTouchDevice = () => {
+
+  startPoint;
+  offsetX;
+  offsetY;
+
+  isTouchDevice = () => {
     return (
       "ontouchstart" in window ||
       navigator.maxTouchPoints > 0 ||
       navigator.msMaxTouchPoints > 0
     );
   };
-  #init = () => {
+
+  init = () => {
     const card = document.createElement("div");
     card.classList.add("card");
     const img = document.createElement("img");
     img.src = this.imageUrl;
     card.append(img);
     this.element = card;
-    if (this.#isTouchDevice()) {
-      this.#listenToTouchEvents();
+    if (this.isTouchDevice()) {
+      this.listenToTouchEvents();
     } else {
-      this.#listenToMouseEvents();
+      this.listenToMouseEvents();
     }
   };
-  #listenToTouchEvents = () => {
+
+  listenToTouchEvents = () => {
     this.element.addEventListener("touchstart", (e) => {
       const touch = e.changedTouches[0];
       if (!touch) return;
       const { clientX, clientY } = touch;
-      this.#startPoint = { x: clientX, y: clientY };
-      document.addEventListener("touchmove", this.#handleTouchMove);
+      this.startPoint = { x: clientX, y: clientY };
+      document.addEventListener("touchmove", this.handleTouchMove);
       this.element.style.transition = "transform 0s";
     });
-    document.addEventListener("touchend", this.#handleTouchEnd);
-    document.addEventListener("cancel", this.#handleTouchEnd);
+    document.addEventListener("touchend", this.handleTouchEnd);
+    document.addEventListener("cancel", this.handleTouchEnd);
   };
-  #listenToMouseEvents = () => {
+
+  listenToMouseEvents = () => {
     this.element.addEventListener("mousedown", (e) => {
       const { clientX, clientY } = e;
-      this.#startPoint = { x: clientX, y: clientY };
-      document.addEventListener("mousemove", this.#handleMouseMove);
+      this.startPoint = { x: clientX, y: clientY };
+      document.addEventListener("mousemove", this.handleMouseMove);
       this.element.style.transition = "transform 0s";
     });
-    document.addEventListener("mouseup", this.#handleMoveUp);
-    // prevent card from being dragged
+    document.addEventListener("mouseup", this.handleMoveUp);
     this.element.addEventListener("dragstart", (e) => {
       e.preventDefault();
     });
   };
-  #handleMove = (x, y) => {
-    this.#offsetX = x - this.#startPoint.x;
-    this.#offsetY = y - this.#startPoint.y;
-    const rotate = this.#offsetX * 0.1;
-    this.element.style.transform = `translate(${this.#offsetX}px, ${
-      this.#offsetY
-    }px) rotate(${rotate}deg)`;
-    // dismiss card
-    if (Math.abs(this.#offsetX) > this.element.clientWidth * 0.7) {
-      this.#dismiss(this.#offsetX > 0 ? 1 : -1);
+
+  handleMove = (x, y) => {
+    this.offsetX = x - this.startPoint.x;
+    this.offsetY = y - this.startPoint.y;
+    const rotate = this.offsetX * 0.1;
+    this.element.style.transform = `translate(${this.offsetX}px, ${this.offsetY}px) rotate(${rotate}deg)`;
+
+    if (Math.abs(this.offsetX) > this.element.clientWidth * 0.7) {
+      this.dismiss(this.offsetX > 0 ? 1 : -1);
     }
   };
-  // mouse event handlers
-  #handleMouseMove = (e) => {
+
+  handleMouseMove = (e) => {
     e.preventDefault();
-    if (!this.#startPoint) return;
+    if (!this.startPoint) return;
     const { clientX, clientY } = e;
-    this.#handleMove(clientX, clientY);
+    this.handleMove(clientX, clientY);
   };
-  #handleMoveUp = () => {
-    this.#startPoint = null;
-    document.removeEventListener("mousemove", this.#handleMouseMove);
+
+  handleMoveUp = () => {
+    this.startPoint = null;
+    document.removeEventListener("mousemove", this.handleMouseMove);
     this.element.style.transform = "";
   };
-  // touch event handlers
-  #handleTouchMove = (e) => {
-    if (!this.#startPoint) return;
+
+  handleTouchMove = (e) => {
+    if (!this.startPoint) return;
     const touch = e.changedTouches[0];
     if (!touch) return;
     const { clientX, clientY } = touch;
-    this.#handleMove(clientX, clientY);
+    this.handleMove(clientX, clientY);
   };
-  #handleTouchEnd = () => {
-    this.#startPoint = null;
-    document.removeEventListener("touchmove", this.#handleTouchMove);
+
+  handleTouchEnd = () => {
+    this.startPoint = null;
+    document.removeEventListener("touchmove", this.handleTouchMove);
     this.element.style.transform = "";
   };
-  #dismiss = (direction) => {
-    this.#startPoint = null;
-    document.removeEventListener("mouseup", this.#handleMoveUp);
-    document.removeEventListener("mousemove", this.#handleMouseMove);
-    document.removeEventListener("touchend", this.#handleTouchEnd);
-    document.removeEventListener("touchmove", this.#handleTouchMove);
+
+  dismiss = (direction) => {
+    this.startPoint = null;
+    document.removeEventListener("mouseup", this.handleMoveUp);
+    document.removeEventListener("mousemove", this.handleMouseMove);
+    document.removeEventListener("touchend", this.handleTouchEnd);
+    document.removeEventListener("touchmove", this.handleTouchMove);
     this.element.style.transition = "transform 1s";
-    this.element.style.transform = `translate(${
-      direction * window.innerWidth
-    }px, ${this.#offsetY}px) rotate(${90 * direction}deg)`;
+    this.element.style.transform = `translate(${direction * window.innerWidth}px, ${this.offsetY}px) rotate(${90 * direction}deg)`;
     this.element.classList.add("dismissing");
     setTimeout(() => {
       this.element.remove();
@@ -128,7 +134,7 @@ class Card {
     }
   };
 }
-// functions
+
 function appendNewCard() {
   const card = new Card({
     imageUrl: urls[cardCount % 5],
@@ -143,7 +149,6 @@ function appendNewCard() {
     },
   });
 
-  // Append the card to the swiper
   swiper.appendChild(card.element);
   cardCount++;
   const cards = swiper.querySelectorAll(".card:not(.dismissing)");
@@ -151,77 +156,69 @@ function appendNewCard() {
     card.style.setProperty("--i", index);
   });
 
-  // Fetch user data and display options
-  fetch('https://raw.githubusercontent.com/marroe01284/NEXUS/main/data.json')
-    .then(response => response.json()) 
-    .then(data => {
-        const users = data.users;
-        // Assuming cardCount corresponds to user index
-        const user = users[cardCount - 1];
-        displayUserOptions(user, card);
-    })
-    .catch(error => console.error('Error fetching data:', error));
+  if (!usersData || cardCount >= usersData.length) {
+    fetch('https://raw.githubusercontent.com/marroe01284/NEXUS/main/data.json')
+      .then(response => response.json()) 
+      .then(data => {
+          usersData = data.users;
+          const nextUserIndex = getNextUserIndex();
+          displayUserOptions(usersData[nextUserIndex], card);
+      })
+      .catch(error => console.error('Error fetching data:', error));
+  } else {
+    const nextUserIndex = getNextUserIndex();
+    displayUserOptions(usersData[nextUserIndex], card);
+  }
 }
 
 function displayUserOptions(user, card) {
   const userOptionsDiv = document.createElement('div');
   userOptionsDiv.classList.add('user-options');
 
-  // username
   const usernameElement = document.createElement('h4');
-  usernameElement.textContent = `Username: ${user.username}`;
+  usernameElement.textContent = `${user.username}`;
   usernameElement.classList.add('section-swipe-hexagon-username');
   userOptionsDiv.appendChild(usernameElement);
 
-// user image
-const userImageElement = document.createElement('img');
-userImageElement.src = user.userImg;
-userImageElement.alt = `Profile Image of ${user.username}`;
+  const userImageElement = document.createElement('img');
+  userImageElement.src = user.userImg;
+  userImageElement.alt = `Profile Image of ${user.username}`;
 
-const userImageContainer = document.createElement('div');
-userImageContainer.classList.add('section-swipe-hexagon-user-image');
-userImageContainer.appendChild(userImageElement);
+  const userImageContainer = document.createElement('div');
+  userImageContainer.classList.add('section-swipe-hexagon-user-image');
+  userImageContainer.appendChild(userImageElement);
 
-userOptionsDiv.appendChild(userImageContainer);
+  userOptionsDiv.appendChild(userImageContainer);
 
+  const favoriteGenreElement = document.querySelector('.swipe-card-right-genre');
+  favoriteGenreElement.innerHTML = '';
+  user.genre.forEach(genre => {
+    const genreSpan = document.createElement('span');
+    genreSpan.textContent = genre;
+    favoriteGenreElement.appendChild(genreSpan);
+  });
 
+  const platformImgContainer = document.querySelector('.swipe-card-right-platform-img');
+  platformImgContainer.innerHTML = '';
+  user.platform.forEach(platform => {
+    const platformImg = document.createElement('img');
+    platformImg.src = `assets/icons/${platform.toLowerCase()}.svg`;
+    platformImg.alt = platform;
+    platformImgContainer.appendChild(platformImg);
+  });
 
-
-  // email
-  const emailElement = document.createElement('p');
-  emailElement.textContent = `Email: ${user.email}`;
-  userOptionsDiv.appendChild(emailElement);
-
-  // genres
-  const genreElement = document.createElement('p');
-  genreElement.textContent = `Preferred Genres: ${user.genre.join(', ')}`;
-  userOptionsDiv.appendChild(genreElement);
-
-  // platforms
-  const platformElement = document.createElement('p');
-  platformElement.textContent = `Preferred Platforms: ${user.platform.join(', ')}`;
-  userOptionsDiv.appendChild(platformElement);
-
-  // gaming style
-  const styleElement = document.createElement('p');
-  styleElement.textContent = `Gaming Style: ${user.style.join(', ')}`;
-  userOptionsDiv.appendChild(styleElement);
-
-  // preferred gaming time
-  const timeElement = document.createElement('p');
-  timeElement.textContent = `Preferred Gaming Time: ${user.time.join(', ')}`;
-  userOptionsDiv.appendChild(timeElement);
-
-  // gaming experience
-  const experienceElement = document.createElement('p');
-  experienceElement.textContent = `Looking to: ${user.experience.join(', ')}`;
-  userOptionsDiv.appendChild(experienceElement);
-
-  // Append user options to card
   card.element.appendChild(userOptionsDiv);
 }
 
-// first 5 cards
+function getNextUserIndex() {
+  let nextIndex;
+  do {
+    nextIndex = Math.floor(Math.random() * usersData.length);
+  } while (nextIndex === lastUserIndex); 
+  lastUserIndex = nextIndex;
+  return nextIndex;
+}
+
 for (let i = 0; i < 5; i++) {
   appendNewCard();
 }
