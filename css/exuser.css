@@ -7,3 +7,66 @@ var(--font-color black)
 font-family: "Bungee", sans-serif;
 font-family: "Roboto", sans-serif;
  */
+
+body {
+    font-family: Roboto, sans-serif;
+    background-color: var(--secondary-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.login-logo {
+    position: absolute;
+    top: -10px;
+}
+
+.login-logo1 {
+    width: 300px;
+    height: 200px;
+}
+.login-container {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    width: 300px;
+}
+
+.login-container h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    font-weight: bold;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    font-size: 20px;
+}
+
+
+.form-group input[type="submit"] {
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
+    border: none;
+    cursor: pointer;
+}
+
+.form-group input[type="submit"]:hover {
+    background-color: var(--primary-color);
+    color: black;
+}
+
