@@ -20,7 +20,7 @@ document.getElementById("loginForm"). addEventListener("submit", function (event
     localStorage.setItem("lastName", lastName);
     localStorage.setItem("username", username);
 
-    window.location.href = "profile.html";
+    window.location.href = "questionaire.html";
 });
 
 document.getElementById("pwd2").addEventListener("input", function () {
